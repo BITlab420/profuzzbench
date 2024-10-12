@@ -7,7 +7,7 @@ ARG MAKE_OPT
 ENV STATEAFL="/home/ubuntu/stateafl"
 ENV STATEAFL_CFLAGS=""
 
-RUN git clone https://github.com/stateafl/stateafl.git $STATEAFL && \
+RUN git clone https://github.com/BITlab420/stateafl.git $STATEAFL && \
     cd $STATEAFL && \
     make clean all $MAKE_OPT && \
     rm as && \

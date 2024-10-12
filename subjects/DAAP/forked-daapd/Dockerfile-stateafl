@@ -14,7 +14,7 @@ ENV STATEAFL_CFLAGS="-D__TRACER_USE_PTHREAD_MUTEX"
 ENV TRACE_CUSTOM_RECEIVE="evhttp_request_get_uri"
 ENV TRACE_CUSTOM_SEND="evhttp_send_reply"
 
-RUN git clone https://github.com/stateafl/stateafl.git $STATEAFL && \
+RUN git clone https://github.com/BITlab420/stateafl.git $STATEAFL && \
     cd $STATEAFL && \
     make clean all $MAKE_OPT && \
     rm as && \

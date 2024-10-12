@@ -8,7 +8,7 @@ ENV STATEAFL="/home/ubuntu/stateafl"
 ENV REPLAYER_CFLAGS="-DSEND_DELAY=200000 -DLOCAL_PORT=30000"
 ENV STATEAFL_CFLAGS="-DBLACKLIST_ALLOC_SITES"
 
-RUN git clone https://github.com/stateafl/stateafl.git $STATEAFL && \
+RUN git clone https://github.com/BITlab420/stateafl.git $STATEAFL && \
     cd $STATEAFL && \
     CFLAGS="${REPLAYER_CFLAGS}" make clean all $MAKE_OPT && \
     rm as && \
