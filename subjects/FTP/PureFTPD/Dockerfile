@@ -14,6 +14,8 @@ RUN apt-get -y update && \
     libgnutls28-dev \
     libssl-dev \
     llvm \
+    python3 \
+    python3-dev \
     python3-pip \
     nano \
     net-tools \
@@ -31,7 +33,7 @@ RUN groupadd ubuntu && \
 
 RUN chmod 777 /tmp
 
-RUN pip install gcovr==4.2
+RUN pip install gcovr==4.2 scikit-learn numpy
 
 # Use ubuntu as default username
 USER ubuntu
@@ -50,6 +52,12 @@ RUN git clone https://github.com/BITlab420/aflnwe.git && \
     cd aflnwe && \
     make clean all $MAKE_OPT && \
     cd llvm_mode && make $MAKE_OPT
+
+RUN wget http://lab420.e411.cn:8000/cmfuzznet.tar && \
+    tar xf cmfuzznet.tar && \
+    mv cmfuzznet aflcmfuzznet && \
+    cd aflcmfuzznet && \
+    CFLAGS="-O3 -funroll-loops -fPIE" make clean all $MAKE_OPT
 
 # Set up environment variables for AFLNet
 ENV WORKDIR="/home/ubuntu/experiments"
