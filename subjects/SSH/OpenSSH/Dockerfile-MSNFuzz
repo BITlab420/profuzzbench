@@ -1,0 +1,18 @@
+FROM openssh-aflnet
+
+# Use ubuntu as default username
+USER ubuntu
+WORKDIR /home/ubuntu
+
+# Import environment variable to pass as parameter to make (e.g., to make parallel builds with -j)
+ARG MAKE_OPT
+
+# Set up MSNFuzz
+ENV MSNFuzz="/home/ubuntu/msnfuzz"
+
+# hack fuzzer name to use existing run.sh
+RUN wget http://10.1.113.100:8000/MSNFuzz.tar && \
+    tar xf MSNFuzz.tar && \
+    mv MSNFuzz aflmsnfuzz && \
+    cd aflmsnfuzz && \
+    make clean all $MAKE_OPT

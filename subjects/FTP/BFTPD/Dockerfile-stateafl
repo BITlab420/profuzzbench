@@ -1,4 +1,4 @@
-FROM bftpd
+FROM bftpd-aflnet
 
 # Use ubuntu as default username
 USER ubuntu

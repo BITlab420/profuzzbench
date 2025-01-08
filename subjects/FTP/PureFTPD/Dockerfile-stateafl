@@ -1,4 +1,4 @@
-FROM pure-ftpd
+FROM pure-ftpd-aflnet
 
 # Use ubuntu as default username
 USER ubuntu

@@ -1,4 +1,4 @@
-FROM proftpd
+FROM proftpd-aflnet
 
 # Use ubuntu as default username
 USER ubuntu

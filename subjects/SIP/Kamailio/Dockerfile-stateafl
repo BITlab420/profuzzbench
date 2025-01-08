@@ -1,4 +1,4 @@
-FROM kamailio
+FROM kamailio-aflnet
 
 # Use ubuntu as default username
 USER ubuntu

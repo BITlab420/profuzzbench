@@ -1,4 +1,4 @@
-FROM forked-daapd
+FROM forked-daapd-aflnet
 
 # Use ubuntu as default username
 USER ubuntu
